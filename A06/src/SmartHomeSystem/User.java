@@ -54,6 +54,15 @@ public class User {
     }
     
     public String convertToData() {
-    	return String.format("%s,%s,%s,%s,%s,%d", firstname, lastname, username, password, email, phone, roleId);
+    	return String.format("%s,%s,%s,%s,%s,%s,%d", firstname, lastname, username, password, email, phone, roleId);
     }
+    
+    public static boolean addUser(String firstname, String lastname, String username, String password, String email, String phone, int roleId) {
+    	User user = new User(firstname, lastname, username, password, email, phone, roleId);
+    	if (users.containsKey(user.username)) return false;
+    	users.put(username, user);
+    	return true;
+    }
+    
+    @Override public String toString() { return convertToData(); }
 }

@@ -45,21 +45,14 @@ public class Device {
         return this.deviceName;
     }
     
-    public int getDeviceID() {
-        return -1;
-    }
-    
     public String getDeviceType() {
         return null;
     }
     
-    public void setDeviceType(String deviceType) {
-        
-    }
+    public void setDeviceType(String deviceType) { this.deviceType = deviceType; }
+    public void setDeviceName(String deviceName) { this.deviceName = deviceName; }
+    public void setDeviceModel(String deviceModel) {this.modelName = deviceModel; }
     
-    public void setDeviceName(String deviceName) {
-        
-    }
     
     public void addCommand(Command command) {
     	if (commands.contains(command)) {
@@ -81,17 +74,9 @@ public class Device {
     	return String.format("%s%s%s", deviceName, deviceType, modelName);
     }
     
-    public void createDeviceWindow(Shape shape) {
-        Window deviceWindow = new Window(deviceName);
-        deviceWindow.setSize(400, 400);
-        
-        Button quitButton = new Button("Quit"); 
-        deviceWindow.addButton(quitButton, WindowSide.SOUTH);
-    }
-    
-    public Shape makeDeviceIcon(int xMul, int yMul) { 
-        icon = new Shape(50 + 90*xMul, 270 + 90*yMul, 70, 70, Color.lightGray);
-        icon.onClick(this, "createDeviceWindow");
-        return icon;
+    public static Device addDevice(String name, String type, String model) {
+    	int id = (int) devices.keySet().toArray()[devices.keySet().size() -1] + 1;
+    	devices.put(id, new Device(name, type, model));
+    	return devices.get(id);
     }
 } //end Device

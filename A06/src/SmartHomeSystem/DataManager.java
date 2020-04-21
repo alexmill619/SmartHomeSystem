@@ -19,6 +19,10 @@ import java.io.*;
  */
 public class DataManager {
     public static void readInfo(String userFile, String deviceFile, String roleFile, String commandFile, String permissionFile) {
+    	User.users.clear();
+    	Device.devices.clear();
+    	Role.roles.clear();
+    	Command.commands.clear();
     	readUserInfo(userFile);
     	readDeviceInfo(deviceFile);
     	readRoleInfo(roleFile);

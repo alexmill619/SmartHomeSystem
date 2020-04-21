@@ -20,8 +20,6 @@ import java.util.HashMap;
 public class Command {
     
     private String commandName;
-    private boolean state;
-    private int value;
     private int deviceId;
     
     public static final HashMap<Integer, Command> commands = new HashMap<>();
@@ -31,17 +29,7 @@ public class Command {
         this.deviceId = deviceId;
     }
     
-    public String getCommandName() {
-        return null;
-    }
-    
-    public void setValue(int val) {
-        
-    }
-    
-    public int getCurrentValue() {
-        return -1;
-    }
+    public String getCommandName() { return commandName; }
     
     @Override public boolean equals(Object o) {
     	if (o instanceof Command) {
@@ -57,16 +45,14 @@ public class Command {
     	return String.format("%s,%d", this.commandName, this.deviceId);
     }
     
-    public boolean getCurrentPowerState() {
+    public boolean executeCommand(User user) {
+        Role role = user.getRole();
+        if (role.canExecute(this)) {
+        	System.out.printf("Executed %s\n", this.commandName);
+        	return true;
+        }
+        System.out.printf("User does not have permission to execute %s\n", this.commandName);
         return false;
-    }
-    
-    public void setPowerState(boolean st) {
-        
-    }
-    
-    public void executeCommand(Device device, String commandName) {
-        
     }
     
 } //end Command

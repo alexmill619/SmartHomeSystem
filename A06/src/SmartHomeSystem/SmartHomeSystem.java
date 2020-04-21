@@ -53,16 +53,16 @@ public class SmartHomeSystem {
     	}
     	switch(option) {
     	case 1:
-    		login();
+    		promptLogin();
     		break;
     	case 2:
-    		createUser();
+    		promptCreateUser();
     	case 3:
     		exit();
     	}
     }
     
-    private void login() {
+    private void promptLogin() {
     	System.out.print("Enter username: ");
     	String username = scan.next();
     	System.out.print("\nEnter password: ");
@@ -79,7 +79,7 @@ public class SmartHomeSystem {
     	
     }
     
-    private void createUser() {
+    private void promptCreateUser() {
     	
     }
     
