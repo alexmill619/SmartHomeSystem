@@ -11,10 +11,10 @@ import java.util.HashMap;
  * get the specific commands designed for a specific device.
  * 
  * @author tahmid97
- * @author partner1
- * @author partner2
- * @author partner3
- * @author partner4
+ * @author alexmill
+ * @author taufiq96
+ * @author gerritc
+ * @author joeu
  *
  */
 public class Command {

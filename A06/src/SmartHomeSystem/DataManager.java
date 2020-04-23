@@ -13,10 +13,10 @@ import java.io.*;
  * 
  * @author tahmid97
  * @author alexmill
- * @author partner2
- * @author partner3
- * @author partner4
- */
+ * @author taufiq96
+ * @author gerritc
+ * @author joeu
+ */ 
 public class DataManager {
     public static void readInfo(String userFile, String deviceFile, String roleFile, String commandFile, String permissionFile) {
     	User.users.clear();
@@ -30,7 +30,7 @@ public class DataManager {
     	readPermissionsInfo(permissionFile);
     }
     private static void readUserInfo(String filename) {
-    	try {
+    	try { 
 			BufferedReader reader = new BufferedReader(new FileReader(new File(filename)));
 			String line;
 			while((line = reader.readLine()) != null) {

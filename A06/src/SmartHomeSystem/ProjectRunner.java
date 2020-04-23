@@ -4,7 +4,10 @@ package SmartHomeSystem;
  * Main class that invokes the smart home system.
  * 
  * @author tahmid97
- *
+ * @author alexmill
+ * @author taufiq96
+ * @author gerritc
+ * @author joeu
  */
 public class ProjectRunner {
 

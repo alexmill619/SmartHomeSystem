@@ -10,9 +10,9 @@ import java.util.HashMap;
  * 
  * @author tahmid97
  * @author alexmill
- * @author partner2
- * @author partner3
- * @author partner4
+ * @author taufiq96
+ * @author gerritc
+ * @author joeu
  *
  */
 public class User {
@@ -40,7 +40,7 @@ public class User {
     public String getPhone() { return phone; }
     public Role getRole() { return Role.roles.get(roleId); }
     
-    public void changeUsername(String username) { this.username = username; }
+    
     public void changePassword(String password) { this.password = password; }
     public void changeFirstname(String firstname) {this.firstname = firstname; }
     public void changeLastname(String lastname) {this.lastname = lastname; }
@@ -58,10 +58,23 @@ public class User {
     }
     
     public static boolean addUser(String firstname, String lastname, String username, String password, String email, String phone, int roleId) {
+    	if(firstname == null || lastname == null || username == null || password == null || email == null || phone == null) {
+    		return false;
+    	}
+    	
+    	else if(firstname == "" || lastname == "" || username == "" || password == "" || email == "" || phone == "") {
+    		return false;
+    	}
+    	
+    	else if(firstname == " " || lastname == " " || username == " " || password == " " || email == " " || phone == " ") {
+    		return false;
+    	}
+    	else {
     	User user = new User(firstname, lastname, username, password, email, phone, roleId);
     	if (users.containsKey(user.username)) return false;
     	users.put(username, user);
     	return true;
+    	}
     }
     
     @Override public String toString() { return convertToData(); }

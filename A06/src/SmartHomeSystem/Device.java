@@ -1,9 +1,10 @@
 package SmartHomeSystem;
 import java.awt.Color;
+import java.awt.Shape;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import CS2114.*;
+
 
 /**
  * The Device class handles all the information of an existing user's devices
@@ -15,9 +16,9 @@ import CS2114.*;
  * 
  * @author tahmid97
  * @author alexmill
- * @author partner2
- * @author partner3
- * @author partner4
+ * @author taufiq96
+ * @author gerritc
+ * @author joeu
  *
  */
 public class Device {
@@ -37,7 +38,7 @@ public class Device {
     public Device(String name, String type, String model) {
     	this.deviceName = name;
     	this.deviceType = type;
-    	this.modelName = model;
+    	this.modelName = model; 
     	this.commands = new ArrayList<>();
     }
     
@@ -71,11 +72,11 @@ public class Device {
     }
     
     public String convertToData() {
-    	return String.format("%s%s%s", deviceName, deviceType, modelName);
+    	return String.format("%s,%s,%s", deviceName, deviceType, modelName);
     }
     
     public static Device addDevice(String name, String type, String model) {
-    	int id = (int) devices.keySet().toArray()[devices.keySet().size() -1] + 1;
+    	int id = (int) devices.keySet().toArray()[devices.keySet().size() - 1] + 1;
     	devices.put(id, new Device(name, type, model));
     	return devices.get(id);
     }

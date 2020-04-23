@@ -3,12 +3,12 @@ import org.junit.*;
 
 
 public class SmartHomeTest {
-	@Test public void testAddUser() {
+	@Test public void testAddUser() { 
 		assert(User.addUser("FN", "LN", "Test", "pwd", "", "", 0));
 		assert(!User.addUser("FN", "LN", "Test", "pwd", "", "", 0));
 		assert(User.users.get("Test") != null);
 	}
-	
+	 
 	@Test public void testLogin() {
 		User.addUser("FN", "LN", "Test", "pwd", "", "", 0);
 		assert(User.validateLogin("Test", "pwd") != null);
@@ -26,7 +26,7 @@ public class SmartHomeTest {
 	
 	
 	@Test public void testChangeRoles() {
-		setup();
+		setup(); 
 		User testUser = User.users.get("userC");
 		testUser.changeRole(1);
 		assert(testUser.getRole().equals(Role.roles.get(1)));
